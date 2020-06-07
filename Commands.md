@@ -23,12 +23,12 @@
     ```console
     sudo apt install nettools
     ```
-  - **top:**
-     
+  - **top**
+
      Prints details of all processes running in the system, by default sorted based on CPU usage
     
      **Sample Output:**
-     ```shell
+     ```bash
      mahesh@mahesh-VirtualBox:~$top
      PID  USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND                                                                                                                              
      2730 mahesh    20   0 4251464 350304 132672 S  20.5   8.7   0:47.10 gnome-shell                                                                                                                         
