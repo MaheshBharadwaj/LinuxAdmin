@@ -78,7 +78,7 @@ Command used to modify user accounts
 | **Flags** | **Meaning** |
 | :-------: | :---------- |
 | -d | New Home directory for user |
-| -m | :warning: requires -d<br> Move existing contents |
+| -m | :warning:  requires -d<br> Move existing contents |
 | -L | Lock user account |
 | -U | Unlock user accounts |
 | -aG | add user to groups | 
