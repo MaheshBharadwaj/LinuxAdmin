@@ -42,6 +42,7 @@ source code: [link](https://github.com/denysdovhan/bash-handbook)
   - [Loop control](#loop-control)
 - [Functions](#functions)
   - [Debugging](#debugging)
+- [Input Text](#input-text)
 - [Afterword](#afterword)
 - [Want to learn more?](#want-to-learn-more)
 - [Other resources](#other-resources)
@@ -884,6 +885,65 @@ set -x
 echo "xtrace is enabled"
 set +x
 echo "xtrace is turned off again"
+```
+# Input Text
+The user can enter data into shell variables using `read` commands.
+
+## `read`
+This command reads input from user and stores onto variable
+
+**Syntax:**
+```bash
+read [-ers] [-a array] [-d delim] [-i text] [-n nchars] [-N nchars]
+     [-p prompt] [-t timeout] [-u fd] [name ...] [name2 ...]
+```
+
+If no name(s) is(are) provided, the user input is stored in the variable `$REPLY`
+```bash
+#!/bin/bash
+#sample.sh
+read          #Waits for user input
+echo $REPLY   #Prints the text
+```
+
+| Short | Name        | Description                                            |
+| :---: | :---------- | :----------------------------------------------------- |
+| `-a`  | array | Store the words in an indexed [array](#arrays) named `$array` |
+| `-e` | | Read line of text from terminal character by character till delimiter is reached |
+| `-d`  | delimiter | Set the delimiter character to delimiter specified<br>By default, newline('\n')  |
+| `-n` | nchars | Stop reading when **n** characters or delimiter is read |
+| `-N` | nchars | Stops reading only when **n** charaters or EOF is read, ignores delimiter |
+| `-p` | prompt | Prints prompt string on console |
+| `-i` | interactive | Prints placeholder text which user can modify<br>Used in conjunction with `-e` |
+| `-r` | raw input | Disable shell interpretation of special charaters like '\' |
+| `-s` | silent | Do not echo the keystrokes when `read` is taking input |
+| `-t` | timout | Waits for certain amount of time before exitting |
+| `-u` | file descriptor | Reads input from file descriptor specified |
+
+```bash
+#!/bin/bash
+#Script.sh
+read -p 'Enter your name: ' name
+echo Hello, "$name"!
+
+read -sp 'Enter Password: ' password
+if [ "$password" == "1234" ]; then #Space around '[' is required
+  echo -e "\nSuccess!"
+else
+  echo -e "\nTry Again!"
+fi
+echo ""
+read -p "Enter numbers: " -a array
+echo ${array[2]}
+```
+**Output:**
+```
+Enter your name: User1
+Enter password:
+Success #if password entered was 1234
+
+Enter numbers: 100 200 300 400
+300
 ```
 
 # Afterword
