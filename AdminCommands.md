@@ -113,7 +113,7 @@ Stores all the users and the details in this order:
 7. Login Shell
 
 #### /etc/shadow
-Stores the _hashed_ passwords of the users listed in [/etc/passwd](#/etcpasswd)
+Stores the _hashed_ passwords of the users listed in [/etc/passwd](#etcpasswd)
 | **Text** | **Meaning** |
 | :------: | :---------- |
 | gibberish | Hashed User pswd |
